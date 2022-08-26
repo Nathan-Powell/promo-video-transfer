@@ -10,6 +10,7 @@ id_dict = {'XYZMONAM1': 53996, 'XYZMONAM2': 53987, 'XYZMONAM3': 53348, 'XYZMONMI
 
 source = 'C:\\Test\\feed_folder\\'
 destination = 'C:\\Test\\output\\'
+os.chdir(source)
 
 # Initiate Feed class instance.
 feed_folder = Feed()
@@ -45,4 +46,4 @@ if __name__ == "__main__":
         new_filename = f'{id_dict[house_id]} {last_air_date}.mp4'
         if house_id and id_dict[house_id]:
             print(f'New filename is {new_filename}')
-            rename_and_copy_file(house_id, new_filename, source, destination)
+            rename_and_copy_file(house_id, new_filename, f'{source}{new_filename}', f'{destination}{new_filename}')
